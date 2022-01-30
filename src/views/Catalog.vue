@@ -42,7 +42,7 @@
           <!-- /col-12 -->
           <div class="row align-items-end">
             <productCard
-              class="col-4 product__card"
+              class="col-12 col-md-6 col-lg-3 product__card"
               v-for="p in products"
               :key="p"
               :product="p"

@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-12">
           <!-- slider -->
-          <div class="slider">
+          <div class=" slider">
             <VueSlickCarousel :arrows="true" :dots="true">
               <div class="bg_img"></div>
               <div class="bg_img"></div>
@@ -22,7 +22,7 @@
     <section class="product_cards">
       <div class="container">
         <div class="row">
-          <div class="col-3" v-for="p in products" :key="p">
+          <div class="col-12 col-sm-6 col-lg-3" v-for="p in products" :key="p">
             <Product :product="p" />
           </div>
         </div>
@@ -76,8 +76,11 @@ export default {
 .slider {
   margin-top: 42px;
   margin-bottom: 96px;
+
   .bg_img {
     height: 408px;
+    min-height: 50%;
+    min-width: 50%;
     background-image: url("../assets/slide_img.jpg");
     background-size: cover;
     background-repeat: no-repeat;

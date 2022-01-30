@@ -104,7 +104,7 @@ export default {
     checkUrlParams() {
       let id_product = this.$route.params.id;
       /*this.getProductById(id_product);*/
-      return id_product
+      return id_product;
     },
     showModalWindow() {
       this.$bvModal.show("item-added");
@@ -112,9 +112,14 @@ export default {
   },
   beforeMount() {
     let id_prod = this.checkUrlParams();
-    this.getProductById(id_prod)
+    this.getProductById(id_prod);
   },
-
+  watch: {
+    $route() {
+      let id_prod = this.checkUrlParams();
+      this.getProductById(id_prod);
+    },
+  },
 };
 </script>
 
@@ -157,8 +162,8 @@ export default {
     line-height: 1.2;
     margin-bottom: 58px;
   }
-  &__categoryCard{
-      margin-bottom: 118px;
+  &__categoryCard {
+    margin-bottom: 118px;
   }
 }
 </style>

@@ -119,5 +119,10 @@ export default {
     color: #ffffff;
     cursor: pointer;
   }
+  @media screen and (max-width: 960px) {
+    &__button {
+      margin-bottom: 40px;
+    }
+  }
 }
 </style>
