@@ -49,16 +49,7 @@
               <div class="header__fluent d-flex">
                 <img src="../assets/fluent.svg" />
                 <div v-if="products.length > 0">
-                  <div
-                    class="
-                      header__fluentNumber
-                      d-flex
-                      align-items-center
-                      justify-content-center
-                    "
-                  >
-                    {{ products.length }}
-                  </div>
+                  <statusCart :products="products.length" />
                 </div>
               </div>
             </router-link>
@@ -72,7 +63,11 @@
 </template>
 
 <script>
+import statusCart from "@/components/status_cart.vue";
 export default {
+  components: {
+    statusCart,
+  },
   data() {
     return {
       products: [],
@@ -91,13 +86,18 @@ export default {
     this.quantityProducts();
     this.isHasId();
   },
+  watch: {},
 };
 </script>
 
 <style lang="scss">
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   background-color: #000;
   height: 60px;
+  z-index: 10;
   &__search {
     height: 32px;
     width: 296px;

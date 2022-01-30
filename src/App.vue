@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/*.loyaut{
-  height: 100vh;
-}*/
+.loyaut{
+  padding: 60px;
+}
 </style>
