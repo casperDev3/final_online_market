@@ -75,18 +75,28 @@ export default {
     };
   },
   methods: {
+    startFunctions() {
+      this.checkStorage();
+      this.quantityProducts();
+    },
     quantityProducts() {
       this.products = JSON.parse(localStorage.getItem("products"));
     },
     checkStorage() {
       this.isHasId = window.localStorage.getItem("products");
+
+      if (!this.isHasId) {
+        let emp = [];
+        let save_local = JSON.stringify(emp);
+        window.localStorage.setItem("products", save_local);
+      }
     },
   },
   beforeMount() {
-    this.quantityProducts();
-    this.isHasId();
+    setInterval(() => this.startFunctions(), 100);
+    /*this.quantityProducts();
+    this.isHasId();*/
   },
-  watch: {},
 };
 </script>
 

@@ -12,7 +12,7 @@
     </div>
     <!-- Show if cart empty -->
     <div v-if="products.length < 1">
-      <emptyCart/>
+      <emptyCart />
     </div>
     <!-- Show if cart has product -->
     <div v-if="products.length >= 1">
@@ -73,6 +73,13 @@ export default {
     };
   },
   methods: {
+    startFunctions() {
+      /*alert(this.products.length)*/
+      let actual_pos_cart = JSON.parse(localStorage.getItem("products"));
+      if (this.products.length != actual_pos_cart.length) {
+        this.products = JSON.parse(localStorage.getItem("products"));
+      }
+    },
     checkStorage() {
       /*this.isHasId = window.localStorage.getItem("products");*/
       this.products = JSON.parse(localStorage.getItem("products"));
@@ -93,6 +100,7 @@ export default {
   },
   beforeMount() {
     this.checkStorage();
+    setInterval(() => this.startFunctions(), 100);
     this.getAllProducts();
   },
 };
