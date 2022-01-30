@@ -28,8 +28,9 @@
           justify-content-center
           align-items-center
         "
+        @click="addToCart(product.id)"
       >
-        <div @click="addToCart(product.id)">До кошика</div>
+        <div>До кошика</div>
       </div>
     </div>
   </div>

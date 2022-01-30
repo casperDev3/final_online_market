@@ -12,7 +12,9 @@
             "
           >
             <div class="cardCart__info d-flex align-items-center">
-              <img :src="product.image" class="cardCart__img" />
+              <div class="cardCart__contImg d-flex justify-content-center align-items-center">
+                <img :src="product.image" class="cardCart__img" />
+              </div>
               <div class="cardCart__descp">{{ product.title }}</div>
             </div>
             <!-- /__info -->
@@ -73,14 +75,19 @@ export default {
   &__bg {
     position: relative;
     height: 194px;
-    background: #ecce8f;
+    background: #F5F5F5;;
     border-radius: 6px;
     margin-bottom: 6px;
   }
-  &__img {
-    margin-left: 10px;
+  &__contImg {
     height: 160px;
-    /*width: 164px;*/
+    width: 164px;
+    margin-left: 10px;
+    background: #fff;
+  }
+  &__img {
+    max-height: 160px;
+    max-width: 164px;
     background-size: center;
     background-position: center;
   }

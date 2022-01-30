@@ -122,7 +122,8 @@ export default {
 .one_product {
   margin-top: 80px;
   &__img {
-    height: 372px;
+    max-height: 372px;
+    max-width: 280px;
     margin-bottom: 148px;
   }
   &__title {
