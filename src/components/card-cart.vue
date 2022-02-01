@@ -144,6 +144,11 @@ export default {
     border-radius: 50%;
     background: rgb(158, 40, 40);
     cursor: pointer;
+    transition-duration: 0.1s;
+    &:hover {
+      background: #f00;
+      transition-duration: 0.1s;
+    }
   }
 }
 </style>

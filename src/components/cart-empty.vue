@@ -67,6 +67,12 @@ export default {};
     font-size: 22px;
     line-height: 1.2;
     color: #ffffff;
+     transition-duration: 0.2s;
+    &:hover {
+      transform: scale(1.05, 1.05);
+      background: #f76e12;
+      transition-duration: 0.2s;  
+    }
   }
 }
 </style>

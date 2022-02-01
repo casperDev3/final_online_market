@@ -21,7 +21,8 @@
           <cardCart :product_id="p.id" />
         </div>
       </div>
-      <router-link :to="{ name: 'Payments' }"
+      <router-link
+        :to="{ name: 'Payments' }"
         class="
           cart__button_nonEmpt
           d-flex
@@ -130,6 +131,12 @@ export default {
     margin-top: 32px;
     margin-bottom: 112px;
     text-decoration: none;
+    transition-duration: 0.1s;
+    &:hover {
+      transform: scale(1.005, 1.005);
+      background: #f76e12;
+      transition-duration: 0.1s;
+    }
 
     .button_text {
       font-weight: 500;

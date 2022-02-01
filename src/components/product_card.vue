@@ -118,6 +118,11 @@ export default {
     vertical-align: middle;
     color: #ffffff;
     cursor: pointer;
+    transition-duration: 0.1s;
+    &:hover {
+      background: #f76e12;
+      transition-duration: 0.1s;
+    }
   }
   @media screen and (max-width: 960px) {
     &__button {

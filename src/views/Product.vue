@@ -151,6 +151,12 @@ export default {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
     cursor: pointer;
+     transition-duration: 0.1s;
+    &:hover {
+      transform: scale(1.01,1.01);
+      background: #f76e12;
+      transition-duration: 0.1s;  
+    }
 
     font-weight: 500;
     font-size: 22px;
