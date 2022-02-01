@@ -2,7 +2,7 @@
   <div class="product">
     <div class="container">
       <!-- Modal Window -->
-      <modalWindow/>
+      <modalWindow />
       <!-- /Modal window -->
       <div class="row">
         <div class="col-3">
@@ -66,7 +66,7 @@ export default {
   },
   components: {
     productCard,
-    modalWindow
+    modalWindow,
   },
   data() {
     return {
@@ -81,6 +81,29 @@ export default {
   },
 
   methods: {
+    shortTitle() {
+      let limitTitle = 40;
+      this.products.forEach((element) => {
+        if (element.title.length > limitTitle) {
+          let temp_text = "";
+          for (let item = 0; item <= limitTitle; item++) {
+            temp_text = temp_text + element.title[item];
+          }
+          temp_text = temp_text + "...";
+          element.title = temp_text;
+        }
+      });
+      this.categories.forEach((element) => {
+        if (element.title.length > limitTitle) {
+          let temp_text = "";
+          for (let item = 0; item <= limitTitle; item++) {
+            temp_text = temp_text + element.title[item];
+          }
+          temp_text = temp_text + "...";
+          element.title = temp_text;
+        }
+      });
+    },
     addClass() {
       alert("complete");
       this.isAddClass = true;
@@ -99,6 +122,7 @@ export default {
         })
         .then((data) => {
           this.products = data;
+          this.shortTitle();
           return data;
         })
         .catch((error) => {
@@ -124,6 +148,7 @@ export default {
         .then((res) => res.json())
         .then((data) => {
           this.products = data;
+          this.shortTitle();
           return data;
         })
         .catch((error) => {

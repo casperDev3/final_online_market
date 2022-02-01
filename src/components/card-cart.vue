@@ -12,7 +12,14 @@
             "
           >
             <div class="cardCart__info d-flex align-items-center">
-              <div class="cardCart__contImg d-flex justify-content-center align-items-center">
+              <div
+                class="
+                  cardCart__contImg
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                "
+              >
                 <img :src="product.image" class="cardCart__img" />
               </div>
               <div class="cardCart__descp">{{ product.title }}</div>
@@ -39,6 +46,17 @@ export default {
     };
   },
   methods: {
+    shortTitle() {
+      let limitTitle = 60;
+      let temp_text = ""
+      if (this.product.title.length > limitTitle) {
+        for (let item = 0; item <= limitTitle; item++) {
+          temp_text = temp_text + this.product.title[item];
+        }
+        temp_text = temp_text + "...";
+        this.product.title = temp_text;
+      }
+    },
     getProductById() {
       fetch("https://fakestoreapi.com/products/" + this.product_id)
         .then((response) => {
@@ -46,6 +64,7 @@ export default {
         })
         .then((data) => {
           this.product = data;
+          this.shortTitle();
           return data;
         })
         .catch((error) => {
@@ -75,7 +94,7 @@ export default {
   &__bg {
     position: relative;
     height: 194px;
-    background: #F5F5F5;;
+    background: #f5f5f5;
     border-radius: 6px;
     margin-bottom: 6px;
   }
