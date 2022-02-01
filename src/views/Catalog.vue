@@ -11,13 +11,19 @@
           </div>
           <div class="product__categories__line"></div>
           <router-link
+            :class="{boldCateg: $route.params.category == 'all'}"
             class="product__categories__item"
             :to="{ name: 'Catalog', params: { category: 'all' } }"
-            >Всі товари</router-link
+            ><div @click="setBoldCategories()">Всі товари</div></router-link
           >
-          <div v-for="categ in categories" :categories="categ" :key="categ">
+          <div
+            @click="setBoldCategories()"
+            v-for="categ in categories"
+            :categories="categ"
+            :key="categ"
+          >
             <router-link
-              :class="{ product__categories__item: true }"
+              :class="{ product__categories__item: true, boldCateg: $route.params.category == categ }"
               :to="{ name: 'Catalog', params: { category: categ } }"
             >
               {{ categ }}
@@ -30,6 +36,7 @@
             <div class="col-12">
               <div
                 v-if="this.$route.params.category == 'all'"
+                :class="{ boldCateg: allProducts }"
                 class="product__categTitle"
               >
                 Всі товари
@@ -73,6 +80,13 @@ export default {
       products: [],
       categories: [],
       isAddClass: false,
+      boldChoiceCategories: {
+        allProducts: false,
+        electronics: false,
+        jewelery: false,
+        mensClothings: false,
+        womensClothings: false,
+      },
     };
   },
   beforeMount() {
@@ -81,6 +95,9 @@ export default {
   },
 
   methods: {
+    setBoldCategories() {
+      
+    },
     shortTitle() {
       let limitTitle = 40;
       this.products.forEach((element) => {
@@ -160,6 +177,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.boldCateg {
+  font-weight: bold;
+}
 .product {
   &__categTitle {
     margin-top: 70px;
