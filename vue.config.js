@@ -2,7 +2,7 @@ module.exports = {
 
     devServer: {
 
-        port: 5050
+        port: 6000
 
     }
 
