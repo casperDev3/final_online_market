@@ -124,5 +124,10 @@ export default {
       margin-bottom: 40px;
     }
   }
+  transition-duration: 0.3s;
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition-duration: 0.3s;
+  }
 }
 </style>

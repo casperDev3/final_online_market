@@ -21,7 +21,7 @@
           <cardCart :product_id="p.id" />
         </div>
       </div>
-      <div
+      <router-link :to="{ name: 'Payments' }"
         class="
           cart__button_nonEmpt
           d-flex
@@ -30,7 +30,7 @@
         "
       >
         <div class="button_text">Оформити замовлення</div>
-      </div>
+      </router-link>
       <!-- /cart_button -->
       <div class="container">
         <div class="row">
@@ -129,6 +129,7 @@ export default {
     margin-right: auto;
     margin-top: 32px;
     margin-bottom: 112px;
+    text-decoration: none;
 
     .button_text {
       font-weight: 500;

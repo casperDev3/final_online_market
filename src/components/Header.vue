@@ -34,19 +34,34 @@
                 <router-link
                   :to="{ name: 'Catalog', params: { category: 'all' } }"
                   id="firstLink"
+                  :class="{ active_page: $route.name == 'Catalog' }"
                   >Каталог</router-link
                 >
               </li>
-              <li>
-                <router-link :to="{ name: 'Payments' }">Оплата</router-link>
+              <li @click="checkRoute()">
+                <router-link
+                  :to="{ name: 'Payments' }"
+                  :class="{ active_page: $route.name == 'Payments' }"
+                  >Оплата</router-link
+                >
               </li>
               <li>
-                <router-link :to="{ name: 'Delivery' }">Доставка</router-link>
+                <router-link
+                  :to="{ name: 'Delivery' }"
+                  :class="{ active_page: $route.name == 'Delivery' }"
+                  >Доставка</router-link
+                >
               </li>
             </ul>
 
             <router-link :to="{ name: 'Cart' }">
-              <div class="header__fluent d-flex">
+              <div v-if="$route.name == 'Cart'" class="header__fluent d-flex">
+                <img src="../assets/fluent2.svg" />
+                <div v-if="products.length > 0">
+                  <statusCart :products="products.length" />
+                </div>
+              </div>
+              <div v-else class="header__fluent d-flex">
                 <img src="../assets/fluent.svg" />
                 <div v-if="products.length > 0">
                   <statusCart :products="products.length" />
@@ -145,12 +160,21 @@ export default {
       padding: 0;
       li {
         list-style: none;
+        &:hover {
+          transform: scale(1.05, 1.05);
+          transition-duration: 0.25s;
+        }
         a {
           text-decoration: none;
           font-size: 16px;
           line-height: 1.2;
           color: #ffffff;
           margin-left: 34px;
+
+          &.active_page {
+            color: #ff9e58;
+            /*font-weight: bold;*/
+          }
           &#firstLink {
             margin: 0;
           }
@@ -161,6 +185,11 @@ export default {
   &__fluent {
     margin-left: 48px;
     position: relative;
+    transition-duration: 0.25s;
+    &:hover {
+      transform: scale(1.05, 1.05);
+      transition-duration: 0.25s;
+    }
     &Number {
       width: 20px;
       height: 20px;

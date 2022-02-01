@@ -102,6 +102,12 @@ export default {
     background: #f5f5f5;
     border-radius: 6px;
     margin-bottom: 6px;
+    transition-duration: 0.5s;
+    &:hover {
+      transform: scale(1.02, 1.02);
+      transition-duration: 0.5s;
+      box-shadow: 4px 4px 4px rgba(255, 132, 44, 0.15);
+    }
   }
   &__contImg {
     height: 160px;
@@ -136,7 +142,7 @@ export default {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #f00;
+    background: rgb(158, 40, 40);
     cursor: pointer;
   }
 }
