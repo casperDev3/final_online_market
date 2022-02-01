@@ -106,7 +106,7 @@ export default {
     &:hover {
       transform: scale(1.02, 1.02);
       transition-duration: 0.5s;
-      box-shadow: 4px 4px 4px rgba(255, 132, 44, 0.15);
+      background: rgba(255, 132, 44, 0.25)
     }
   }
   &__contImg {
